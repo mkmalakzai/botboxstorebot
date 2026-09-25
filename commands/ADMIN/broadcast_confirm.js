@@ -12,8 +12,8 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases:
   group:
 CMD*/
 
-var m=User.getProperty("broadcast_draft"),ids=Bot.getProperty("customer_ids")||[];if(!m){Bot.runCommand("admin_panel");return;}for(var i=0;i<ids.length;i++)Bot.sendMessageToChatWithId(ids[i],"📣 *STORE UPDATE*\n━━━━━━━━━━━━━━\n\n"+m,{parse_mode:"Markdown"});User.setProperty("broadcast_draft",null);Bot.sendInlineKeyboard([[{title:"⬅️ Admin Panel",command:"admin_panel"}]],"✅ *BROADCAST SENT*\n\nRecipients queued: *"+ids.length+"*",{parse_mode:"Markdown"});
+var __o=Bot.getProperty("owner_id"),__a=Bot.getProperty("store_admins")||[],__ok=__o==user.telegramid;for(var __i=0;__i<__a.length;__i++)if(__a[__i].user_id==user.telegramid)__ok=true;if(!__ok){Bot.sendMessage("⛔ ACCESS DENIED");return;}var m=User.getProperty("broadcast_draft"),ids=Bot.getProperty("customer_ids")||[];if(!m){Bot.runCommand("admin_panel");return;}for(var i=0;i<ids.length;i++)Api.sendMessage({chat_id:ids[i],text:"📣 STORE UPDATE\n\n"+m});User.setProperty("broadcast_draft",null);Bot.sendInlineKeyboard([[{title:"⬅️ Admin Panel",command:"admin_panel"}]],"✅ Broadcast sent to "+ids.length+" registered customers.");
