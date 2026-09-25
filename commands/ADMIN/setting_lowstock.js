@@ -16,4 +16,4 @@
   group:
 CMD*/
 
-Bot.sendInlineKeyboard([[{title:"❌ Cancel",command:"admin_settings"}]],"📦 *LOW STOCK ALERT*\n\nSend threshold quantity. Example: *5*",{parse_mode:"Markdown"});Bot.runCommand("setting_lowstock_wait");
+var __o=Bot.getProperty("owner_id"),__a=Bot.getProperty("store_admins")||[],__ok=__o==user.telegramid;for(var __i=0;__i<__a.length;__i++)if(__a[__i].user_id==user.telegramid)__ok=true;if(!__ok){Bot.sendMessage("⛔ ACCESS DENIED");return;}Bot.sendInlineKeyboard([[{title:"❌ Cancel",command:"admin_settings"}]],"📦 *LOW STOCK ALERT*\n\nSend threshold quantity.",{parse_mode:"Markdown"});Bot.runCommand("setting_lowstock_wait");
