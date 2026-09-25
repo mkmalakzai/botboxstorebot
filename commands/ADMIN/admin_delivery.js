@@ -12,8 +12,8 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases:
   group:
 CMD*/
 
-var s=Bot.getProperty("store_settings")||{},d=s.delivery||{};Bot.sendInlineKeyboard([[{title:"🆓 Free",command:"delivery_mode free"},{title:"💵 Fixed",command:"delivery_mode fixed"}],[{title:"📍 Area Based",command:"delivery_mode area"},{title:"⬅️ Admin Panel",command:"admin_panel"}]],"🚚 *DELIVERY SETTINGS*\n━━━━━━━━━━━━━━\n\nMode: *"+d.mode+"*\nFixed Fee: *"+d.fixed_fee+"*\n\nSet fee: `delivery_fee 50`",{parse_mode:"Markdown"});
+var s=Bot.getProperty("store_settings")||{},d=s.delivery||{};Bot.sendInlineKeyboard([[{title:"🆓 Free",command:"delivery_mode free"},{title:"💵 Fixed Fee",command:"delivery_fixed_start"}],[{title:"📍 Area Based",command:"delivery_areas"},{title:"⬅️ Admin Panel",command:"admin_panel"}]],"🚚 *DELIVERY SETTINGS*\n━━━━━━━━━━━━━━\n\nMode: *"+(d.mode||"free")+"*\nFixed fee: *"+Number(d.fixed_fee||0)+"*\nAreas: *"+((d.areas||[]).length)+"*",{parse_mode:"Markdown"});

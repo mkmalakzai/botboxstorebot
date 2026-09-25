@@ -12,8 +12,8 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases:
   group:
 CMD*/
 
-var c=Bot.getProperty("store_coupons")||[],t="🎟 *COUPONS & PROMOTIONS*\n━━━━━━━━━━━━━━\n\nActive records: *"+c.length+"*\n\nAdd with:\n`coupon_save CODE | percent/fixed | VALUE | MIN_ORDER | TOTAL_LIMIT | PER_USER_LIMIT`";Bot.sendInlineKeyboard([[{title:"⬅️ Admin Panel",command:"admin_panel"}]],t,{parse_mode:"Markdown"});
+var c=Bot.getProperty("store_coupons")||[],b=[[{title:"➕ Create Coupon",command:"coupon_add"}]];for(var i=0;i<c.length;i++)b.push([{title:(c[i].active?"🟢 ":"🔴 ")+c[i].code,command:"coupon_view "+i}]);b.push([{title:"⬅️ Admin Panel",command:"admin_panel"}]);Bot.sendInlineKeyboard(b,"🎟 *COUPONS & PROMOTIONS*\n━━━━━━━━━━━━━━\n\nCoupons: *"+c.length+"*",{parse_mode:"Markdown"});
