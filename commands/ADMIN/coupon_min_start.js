@@ -16,4 +16,4 @@
   group:
 CMD*/
 
-Bot.sendMessage("🛒 Send minimum order amount. Send *0* for none.",{parse_mode:"Markdown"});Bot.runCommand("coupon_min_wait");
+var __o=Bot.getProperty("owner_id"),__a=Bot.getProperty("store_admins")||[],__ok=__o==user.telegramid;for(var __i=0;__i<__a.length;__i++)if(__a[__i].user_id==user.telegramid)__ok=true;if(!__ok){Bot.sendMessage("⛔ ACCESS DENIED");return;}Bot.sendMessage("🛒 Send minimum order amount. Send *0* for none.",{parse_mode:"Markdown"});Bot.runCommand("coupon_min_wait");
