@@ -16,4 +16,4 @@
   group:
 CMD*/
 
-Bot.sendInlineKeyboard([[{title:"⬅️ Admin Panel",command:"admin_panel"}]],"📣 *BROADCAST CENTER*\n━━━━━━━━━━━━━━\n\nSend with:\n`broadcast_send Your message`",{parse_mode:"Markdown"});
+Bot.sendInlineKeyboard([[{title:"❌ Cancel",command:"admin_panel"}]],"📣 *NEW BROADCAST*\n━━━━━━━━━━━━━━\n\nSend the message you want to broadcast to registered customers.",{parse_mode:"Markdown"});Bot.runCommand("broadcast_wait");

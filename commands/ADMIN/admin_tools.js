@@ -16,4 +16,4 @@
   group:
 CMD*/
 
-var ms=Bot.getProperty("payment_methods")||[],b=[];for(var i=0;i<ms.length;i++)b.push([{title:(ms[i].enabled?"🟢 ":"🔴 ")+ms[i].name,command:"payment_toggle "+ms[i].id}]);b.push([{title:"➕ Add Manual Method",command:"payment_add"}],[{title:"⬅️ Admin Panel",command:"admin_panel"}]);Bot.sendInlineKeyboard(b,"💳 *PAYMENT METHODS*\n━━━━━━━━━━━━━━\n\nUse `payment_save Name | Instructions` to add a manual method.",{parse_mode:"Markdown"});
+var ms=Bot.getProperty("payment_methods")||[],b=[];for(var i=0;i<ms.length;i++)b.push([{title:(ms[i].enabled?"🟢 ":"🔴 ")+ms[i].name,command:"payment_toggle "+ms[i].id}]);b.push([{title:"➕ Add Manual Method",command:"payment_add"}]);b.push([{title:"⬅️ Admin Panel",command:"admin_panel"}]);Bot.sendInlineKeyboard(b,"💳 *PAYMENT METHODS*\n━━━━━━━━━━━━━━\n\nTap an existing method to enable/disable it, or add a new manual payment method.",{parse_mode:"Markdown"});

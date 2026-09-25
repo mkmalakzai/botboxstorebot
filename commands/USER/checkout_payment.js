@@ -16,4 +16,4 @@
   group:
 CMD*/
 
-var ms=Bot.getProperty("payment_methods")||[],m=null;for(var i=0;i<ms.length;i++)if(String(ms[i].id)==String(params)){m=ms[i];break;}if(!m){Bot.sendMessage("⚠️ Payment method unavailable.");return;}User.setProperty("checkout_payment",m,"json");Bot.runCommand("order_place");
+var ms=Bot.getProperty("payment_methods")||[],m=null;for(var i=0;i<ms.length;i++)if(String(ms[i].id)==String(params)&&ms[i].enabled){m=ms[i];break;}if(!m){Bot.sendMessage("⚠️ This payment method is unavailable.");return;}User.setProperty("checkout_payment",m,"json");Bot.runCommand("checkout_review");

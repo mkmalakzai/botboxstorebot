@@ -16,4 +16,4 @@
   group:
 CMD*/
 
-User.setProperty("input_mode","address","string");Bot.sendInlineKeyboard([[{title:"❌ Cancel",command:"profile"}]],"📍 *ADD DELIVERY ADDRESS*\n━━━━━━━━━━━━━━\n\nSend:\n*Label | Phone | Full Address*\n\nExample: Home | 0700000000 | Street, City",{parse_mode:"Markdown"});
+User.setProperty("address_return","profile","string");Bot.sendInlineKeyboard([[{title:"❌ Cancel",command:"profile"}]],"📍 *ADD NEW ADDRESS*\n━━━━━━━━━━━━━━\n\nFirst, send a short label for this address.\n\nExample: *Home* or *Office*",{parse_mode:"Markdown"});Bot.runCommand("address_label_wait");
