@@ -12,8 +12,8 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases:
   group:
 CMD*/
 
-var d=User.getProperty("product_draft")||{};d.category_id=params;User.setProperty("product_draft",d,"json");var s=Bot.getProperty("store_settings")||{symbol:"؋"};Bot.sendInlineKeyboard([[{title:"✅ Publish Product",command:"product_publish"}],[{title:"❌ Cancel",command:"admin_products"}]],"👀 *PRODUCT PREVIEW*\n━━━━━━━━━━━━━━\n\n🛍 *"+d.name+"*\n"+d.description+"\n\n💰 "+s.symbol+d.price+"\n📦 Stock: "+d.stock+"\n🏷 SKU: "+d.sku+"\n\nPublish this product?",{parse_mode:"Markdown"});
+var __o=Bot.getProperty("owner_id"),__a=Bot.getProperty("store_admins")||[],__ok=__o==user.telegramid;for(var __i=0;__i<__a.length;__i++)if(__a[__i].user_id==user.telegramid)__ok=true;if(!__ok){Bot.sendMessage("⛔ ACCESS DENIED");return;}var d=User.getProperty("product_draft")||{};d.category_id=params;User.setProperty("product_draft",d,"json");Bot.sendInlineKeyboard([[{title:"➕ Add Variant",command:"product_variant_add"},{title:"⏭ Skip Variants",command:"product_photos_start"}],[{title:"❌ Cancel",command:"admin_products"}]],"🎨 Step 8/10 — Add variants (size/color etc.) or skip.");

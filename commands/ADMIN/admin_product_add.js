@@ -12,8 +12,8 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases:
   group:
 CMD*/
 
-User.setProperty("product_draft",{},"json");Bot.sendInlineKeyboard([[{title:"❌ Cancel",command:"admin_products"}]],"➕ *NEW PRODUCT*\n━━━━━━━━━━━━━━\n\nStep 1/6 — Send the *product name*.",{parse_mode:"Markdown"});Bot.runCommand("product_name_wait");
+var __o=Bot.getProperty("owner_id"),__a=Bot.getProperty("store_admins")||[],__ok=__o==user.telegramid;for(var __i=0;__i<__a.length;__i++)if(__a[__i].user_id==user.telegramid)__ok=true;if(!__ok){Bot.sendMessage("⛔ ACCESS DENIED");return;}User.setProperty("product_draft",{photos:[],variants:[]},"json");Bot.sendInlineKeyboard([[{title:"❌ Cancel",command:"admin_products"}]],"➕ *NEW PRODUCT*\n\nStep 1/10 — Send product name.",{parse_mode:"Markdown"});Bot.runCommand("product_name_wait");

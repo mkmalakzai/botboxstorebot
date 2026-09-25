@@ -12,8 +12,8 @@
   <<KEYBOARD
 
   KEYBOARD
-  aliases: 
+  aliases:
   group:
 CMD*/
 
-var d=User.getProperty("product_draft");if(!d||!d.name){Bot.runCommand("admin_products");return;}var ps=Bot.getProperty("store_products")||[],id="PRD-"+new Date().getTime();d.id=id;d.sale_price=null;d.featured=false;d.active=true;d.variants=[];d.photos=[];d.created_at=new Date().toISOString();ps.push(d);Bot.setProperty("store_products",ps,"json");User.setProperty("product_draft",null);Bot.sendInlineKeyboard([[{title:"🛍 Products",command:"admin_products"},{title:"➕ Add Another",command:"admin_product_add"}]],"✅ *PRODUCT PUBLISHED*\n━━━━━━━━━━━━━━\n\n*"+d.name+"* is now available in your store.",{parse_mode:"Markdown"});
+var __o=Bot.getProperty("owner_id"),__a=Bot.getProperty("store_admins")||[],__ok=__o==user.telegramid;for(var __i=0;__i<__a.length;__i++)if(__a[__i].user_id==user.telegramid)__ok=true;if(!__ok){Bot.sendMessage("⛔ ACCESS DENIED");return;}var d=User.getProperty("product_draft");if(!d||!d.name){Bot.runCommand("admin_products");return;}var ps=Bot.getProperty("store_products")||[],id="PRD-"+new Date().getTime();d.id=id;d.featured=false;d.active=true;d.created_at=new Date().toISOString();ps.push(d);Bot.setProperty("store_products",ps,"json");User.setProperty("product_draft",null);Bot.sendInlineKeyboard([[{title:"🛍 Products",command:"admin_products"},{title:"➕ Add Another",command:"admin_product_add"}]],"✅ *PRODUCT PUBLISHED*\n\n*"+d.name+"* is live.",{parse_mode:"Markdown"});
